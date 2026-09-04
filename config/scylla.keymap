@@ -132,6 +132,33 @@ ZMK_SHIFT_MACRO(bt_sel_2, &bt BT_SEL 2, &bt BT_SEL 2 &bt BT_CLR)
 ZMK_SHIFT_MACRO(bt_sel_3, &bt BT_SEL 3, &bt BT_SEL 3 &bt BT_CLR)
 ZMK_SHIFT_MACRO(bt_sel_4, &bt BT_SEL 4, &bt BT_SEL 4 &bt BT_CLR)
 
+/ {
+    combos {
+        compatible = "zmk,combos";
+
+        // Буква Ё
+        combo_yo {
+            timeout-ms = <50>;
+            key-positions = <1 2>; // Номера двух соседних клавиш
+            bindings = <&kp GRAVE>; // Клавиша `~` (в русской раскладке OS — Ё)
+        };
+
+        // Буква Ъ
+        combo_hard_sign {
+            timeout-ms = <50>;
+            key-positions = <8 9>; // Номера два соседних клавиш
+            bindings = <&kp RBKT>; // Клавиша ] (в русской раскладке OS — Ъ)
+        };
+
+        // Буква Э
+        combo_e_sign {
+            timeout-ms = <50>;
+            key-positions = <19 20>; // Номера двух соседних клавиш
+            bindings = <&kp SQT>; // Клавиша ' (в русской раскладке OS — Э)
+        };
+    };
+};
+
 /* Keymap */
 
 ZMK_LAYER(canary,
