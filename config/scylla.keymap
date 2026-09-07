@@ -161,6 +161,57 @@ ZMK_SHIFT_MACRO(bt_sel_4, &bt BT_SEL 4, &bt BT_SEL 4 &bt BT_CLR)
 
 /* Keymap */
 
+
+/ {
+    combos {
+        compatible = "zmk,combos";
+
+        // Буква Ё (нажатие 1 + 2 клавиш в верхнем левом ряду)
+        combo_yo {
+            timeout-ms = <50>;
+            key-positions = <1 2>;
+            bindings = <&kp GRAVE>;
+        };
+
+        // Буква Ъ (нажатие 8 + 9 клавиш в верхнем правом ряду)
+        combo_hard_sign {
+            timeout-ms = <50>;
+            key-positions = <8 9>;
+            bindings = <&kp RBKT>;
+        };
+
+        // Буква Э (нажатие 19 + 20 клавиш в среднем правом ряду)
+        combo_e_sign {
+            timeout-ms = <50>;
+            key-positions = <19 20>;
+            bindings = <&kp SQT>;
+        };
+    };
+
+    // Автоматический вызов слоя мыши при движении трекбола
+    trackball_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackball>;
+        layers = <0>;
+        input-processors = <&zip_temp_layer 4 1000>;
+    };
+};
+
+
+        // Слой 4: AUTO-MOUSE / TRACKBALL
+        mouse_layer {
+            bindings = <
+&trans &trans &trans       &trans       &trans       &trans         &trans &trans        &trans        &trans        &trans &trans
+&trans &trans &mkp LCLK    &mkp MCLK    &mkp RCLK    &trans         &trans &mkp LCLK     &mkp MCLK     &mkp RCLK     &trans &trans
+&trans &trans &trans       &trans       &trans       &trans         &trans &trans        &trans        &trans        &trans &trans
+&trans &trans &trans       &trans       &trans       &trans         &trans &trans        &trans        &trans        &trans &trans
+                           &trans       &mkp RCLK    &mkp LCLK      &trans &trans
+            >;
+        };
+
+
+
+
 ZMK_LAYER(canary,
 // ╭───────────────────────────────────────────────────────────────────────────────╮ ╭───────────────────────────────────────────────────────────────────────────────╮
           &kp ESC       &kp N1       &kp N2       &kp N3       &kp N4       &kp N5           &kp N6       &kp N7       &kp N8       &kp N9       &kp N0    &kp MINUS
