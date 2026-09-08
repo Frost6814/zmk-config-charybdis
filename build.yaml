@@ -1,6 +1,6 @@
 include:
-  - board: nice_nano@zmk
+  - board: nice_nano@2//zmk
     shield: scylla_left
-  - board: nice_nano@zmk
+  - board: nice_nano@2//zmk
     shield: scylla_right
     
