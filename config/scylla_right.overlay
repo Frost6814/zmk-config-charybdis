@@ -83,11 +83,15 @@
 };
 
 / {
+    / {
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        scroll-layers = <FUN_NUM SCROLL>;
-        // snipe-layers = <MOUSE>;
+
+        scroll {
+            layers = <FUN_NUM SCROLL>;
+            input-processors = <&zip_xy_to_scroll_mapper>;
+        };
     };
 };
 
