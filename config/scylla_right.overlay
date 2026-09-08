@@ -84,10 +84,10 @@
 
 / {
     trackball_listener {
-        scroll-layers = <FUN_NUM SCROLL>;
-        // snipe-layers = <MOUSE>;
         compatible = "zmk,input-listener";
         device = <&trackball>;
+        scroll-layers = <FUN_NUM SCROLL>;
+        // snipe-layers = <MOUSE>;
     };
 };
 
