@@ -32,7 +32,7 @@ jobs:
       build_matrix: ${{ env.build_matrix }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: recursive
 
@@ -55,7 +55,7 @@ jobs:
       matrix: ${{ fromJson(needs.matrix.outputs.build_matrix) }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: recursive
 
@@ -91,7 +91,7 @@ jobs:
           fi
 
       - name: Cache west modules
-        uses: actions/cache@v3.0.11
+        uses: actions/cache@v4
         continue-on-error: true
         env:
           cache_name: cache-zephyr-${{ env.zephyr_version }}-modules
@@ -173,3 +173,4 @@ jobs:
       - name: Cleanup ZMK patches
         working-directory: ${{ env.base_dir }}/zmk
         run: git reset --hard && git clean -fd
+        
